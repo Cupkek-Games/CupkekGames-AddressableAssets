@@ -1,5 +1,5 @@
 #if UNITY_ADDRESSABLES
-namespace CupkekGames.Systems.UI
+namespace CupkekGames.AddressableAssets.UI
 {
   public class UIPrefabLoaderAddressableString : UIPrefabLoaderAddressable<string>
   {

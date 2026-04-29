@@ -1,10 +1,10 @@
 #if UNITY_ADDRESSABLES
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using CupkekGames.Core.Pool;
+using CupkekGames.Pool;
 using System.Collections.Generic;
 
-namespace CupkekGames.Systems.Test
+namespace CupkekGames.AddressableAssets.Test
 {
     public class TestAddressableGameObjectPool : MonoBehaviour
     {

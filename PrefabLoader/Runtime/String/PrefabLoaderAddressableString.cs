@@ -1,6 +1,6 @@
 #if UNITY_ADDRESSABLES
 
-namespace CupkekGames.Systems
+namespace CupkekGames.AddressableAssets
 {
   public abstract class PrefabLoaderAddressableString : PrefabLoaderAddressable<string>
   {

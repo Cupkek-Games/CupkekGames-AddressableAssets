@@ -1,9 +1,9 @@
 #if UNITY_ADDRESSABLES
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using CupkekGames.Core.Pool;
+using CupkekGames.Pool;
 
-namespace CupkekGames.Systems
+namespace CupkekGames.AddressableAssets
 {
     public class AddressableGameObjectPool : GameObjectPoolBase
     {

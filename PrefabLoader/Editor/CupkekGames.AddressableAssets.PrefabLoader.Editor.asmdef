@@ -1,12 +1,16 @@
 {
-    "name": "CupkekGames.Systems.Addressables",
+    "name": "CupkekGames.AddressableAssets.PrefabLoader.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:9e24947de15b9834991c9d8411ea37cf",
         "GUID:84651a3751eca9349aac36a66bba901b",
-        "GUID:38afbb2359e489e4fa79dc88f61428b5"
+        "GUID:c537e6a6eccff7243864b815159fd373",
+        "GUID:aa6539cffd9044b9aa2dc37aa2c66ef0",
+        "GUID:b8f41375d57f42079c1d8dece8bd7277"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

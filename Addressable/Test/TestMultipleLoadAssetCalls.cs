@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CupkekGames.Systems.Test
+namespace CupkekGames.AddressableAssets.Test
 {
     public class TestMultipleLoadAssetCalls : MonoBehaviour
     {

@@ -1,12 +1,13 @@
 #if UNITY_ADDRESSABLES
+using CupkekGames.PrefabLoader;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using CupkekGames.Core;
+using CupkekGames.KeyValueDatabase;
 
-namespace CupkekGames.Systems
+namespace CupkekGames.AddressableAssets
 {
   public abstract class PrefabLoaderAddressable<TKey> : KeyValueDatabaseMono<TKey, AssetReference>, IPrefabLoader<TKey, AssetReference>
   {

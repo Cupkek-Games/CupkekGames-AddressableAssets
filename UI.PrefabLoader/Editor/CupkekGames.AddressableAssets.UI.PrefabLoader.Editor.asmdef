@@ -1,5 +1,5 @@
 {
-    "name": "CupkekGames.Systems.UI.PrefabLoader.Editor",
+    "name": "CupkekGames.AddressableAssets.UI.PrefabLoader.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:8c5a58f4ceeaeff428a5333f02ab4313",

@@ -1,10 +1,11 @@
 
 #if UNITY_ADDRESSABLES && UNITY_EDITOR
 using CupkekGames.Luna;
-using CupkekGames.Systems.Editor;
+using CupkekGames.AddressableAssets.Editor;
+using CupkekGames.Services.Editor;
 using UnityEditor;
 
-namespace CupkekGames.Systems.UI.Editor
+namespace CupkekGames.AddressableAssets.UI.Editor
 {
     [CustomEditor(typeof(UIPrefabLoaderAddressableString), true)]
     public class UIPrefabLoaderAddressableStringEditor : PrefabLoaderAddressableEditor<string, UIViewComponent>

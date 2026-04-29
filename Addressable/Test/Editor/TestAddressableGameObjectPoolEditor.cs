@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
-namespace CupkekGames.Systems.Test.Editor
+namespace CupkekGames.AddressableAssets.Test.Editor
 {
     [CustomEditor(typeof(TestAddressableGameObjectPool))]
     public class TestAddressableGameObjectPoolEditor : UnityEditor.Editor

@@ -2,7 +2,7 @@
 
 ## Package Overview
 
-**CupkekGames Addressables** (`com.cupkekgames.addressables`) wraps Unity's Addressables system with a prefab loader and Luna UI bindings.
+**CupkekGames Addressables** (`com.cupkekgames.addressableassets`) wraps Unity's Addressables system with a prefab loader and Luna UI bindings.
 
 ## Critical: Do not hand-edit Unity serialized assets or `.meta` files
 
@@ -11,7 +11,7 @@ Apply scene/SO/Addressables-catalog changes in Unity Editor; preserve `.meta` GU
 ## Package Structure
 
 ```
-com.cupkekgames.addressables/
+com.cupkekgames.addressableassets/
   package.json
   README.md
   AGENTS.md
@@ -29,7 +29,7 @@ com.cupkekgames.addressables/
 
 ## Dependencies
 
-- `com.cupkekgames.core`
+- `com.cupkekgames.pool`, `com.cupkekgames.keyvaluedatabase`, `com.cupkekgames.prefabloader` (foundation for `AddressableGameObjectPool` + `PrefabLoaderAddressable`)
 - `com.cupkekgames.luna`
 - `com.unity.addressables`
 

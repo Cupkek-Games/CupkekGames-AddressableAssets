@@ -1,4 +1,5 @@
 #if UNITY_ADDRESSABLES && UNITY_EDITOR
+using CupkekGames.KeyValueDatabase;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -8,7 +9,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceLocations;
 using UnityEngine.UIElements;
 
-namespace CupkekGames.Systems.Editor
+namespace CupkekGames.AddressableAssets.Editor
 {
     public abstract class PrefabLoaderAddressableEditor<TKey, TValue> : UnityEditor.Editor
     {

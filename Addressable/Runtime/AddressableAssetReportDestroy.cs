@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-namespace CupkekGames.Systems
+namespace CupkekGames.AddressableAssets
 {
   public class AddressableAssetReportDestroy : MonoBehaviour
   {

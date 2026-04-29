@@ -6,7 +6,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Threading.Tasks;
 
-namespace CupkekGames.Systems
+namespace CupkekGames.AddressableAssets
 {
   public static class AddressableAssetManager
   {

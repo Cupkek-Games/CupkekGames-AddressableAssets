@@ -1,7 +1,7 @@
 {
-  "name": "com.cupkekgames.addressables",
-  "displayName": "CupkekGames Addressables",
-  "version": "0.1.0",
+  "name": "com.cupkekgames.addressableassets",
+  "displayName": "CupkekGames AddressableAssets",
+  "version": "0.1.1",
   "author": {
     "name": "CupkekGames",
     "url": "https://www.docs.cupkek.games"
@@ -16,7 +16,9 @@
     "CupkekGames"
   ],
   "dependencies": {
-    "com.cupkekgames.core": "0.1.0",
+    "com.cupkekgames.pool": "0.1.0",
+    "com.cupkekgames.keyvaluedatabase": "0.1.0",
+    "com.cupkekgames.prefabloader": "0.1.0",
     "com.cupkekgames.luna": "1.4.0",
     "com.unity.addressables": "2.7.4"
   }

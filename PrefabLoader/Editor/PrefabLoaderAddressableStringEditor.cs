@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine.AddressableAssets;
 
-namespace CupkekGames.Systems.Editor
+namespace CupkekGames.AddressableAssets.Editor
 {
     [CustomEditor(typeof(PrefabLoaderAddressableString), true)]
     public class PrefabLoaderAddressableStringEditor : PrefabLoaderAddressableEditor<string, AssetReference>

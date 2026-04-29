@@ -1,10 +1,11 @@
 #if UNITY_ADDRESSABLES
+using CupkekGames.KeyValueDatabase;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using CupkekGames.Luna;
 
-namespace CupkekGames.Systems.UI
+namespace CupkekGames.AddressableAssets.UI
 {
   public abstract class UIPrefabLoaderAddressable<TKey> : PrefabLoaderAddressable<TKey>
   {
