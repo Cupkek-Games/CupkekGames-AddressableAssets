@@ -26,7 +26,7 @@ namespace CupkekGames.AddressableAssets.Test
 
         public void Spawn()
         {
-            GameObject gameObject = _pool.Pool.Get();
+            GameObject gameObject = _pool.Get();
             _spawned.Add(gameObject);
 
             Vector3 randomPosition = new Vector3(
