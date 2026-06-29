@@ -39,12 +39,14 @@ namespace CupkekGames.AddressableAssets.UI
 
       foreach (GameObject go in list)
       {
-        UIDocument uiDocument = go.GetComponent<UIDocument>();
-
-        // fade
-        FadeUIElement fadeUIElement = new(this, uiDocument.rootVisualElement);
-        fadeUIElement.SetDuration(duration);
-        fadeUIElement.FadeOut();
+        // Luna views render through a PanelRenderer (no UIDocument). Mirror
+        // Instantiate's UIViewComponent path and drive the view's own
+        // FadeUIElement, rather than building one off a (null) UIDocument.
+        if (go != null && go.TryGetComponent<UIViewComponent>(out var view) && view.Fade != null)
+        {
+          view.Fade.SetDuration(duration);
+          view.Fade.FadeOut();
+        }
       }
 
       StartCoroutine(DestroyAllOfWithDelay(key, duration));
