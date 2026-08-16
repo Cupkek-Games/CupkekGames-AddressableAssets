@@ -5,27 +5,33 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Threading.Tasks;
+using Unity.Scripting.LifecycleManagement;
 
 namespace CupkekGames.AddressableAssets
 {
-  public static class AddressableAssetManager
+  public static partial class AddressableAssetManager
   {
     #region State
 
+    [AutoStaticsCleanup]
     private static Dictionary<AssetReference, AsyncOperationHandle> _loadedAssetReference = new();
+    [AutoStaticsCleanup]
     private static Dictionary<AsyncOperationHandle, List<GameObject>> _instantiatedGameObjects = new();
 
     #endregion
 
     #region Events
 
+    [AutoStaticsCleanup]
     public static event Action<AssetReference, GameObject> OnInstanceDestroy;
+    [AutoStaticsCleanup]
     public static event Action<AssetReference> OnAssetUnloaded;
 
     #endregion
 
     #region Debug
 
+    [AutoStaticsCleanup]
     public static bool Test = false;
 
     #endregion

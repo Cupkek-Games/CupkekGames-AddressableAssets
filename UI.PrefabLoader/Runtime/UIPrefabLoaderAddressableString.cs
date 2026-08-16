@@ -1,8 +1,11 @@
+using Unity.Scripting.LifecycleManagement;
+
 #if UNITY_ADDRESSABLES
 namespace CupkekGames.AddressableAssets.UI
 {
-  public class UIPrefabLoaderAddressableString : UIPrefabLoaderAddressable<string>
+  public partial class UIPrefabLoaderAddressableString : UIPrefabLoaderAddressable<string>
   {
+    [AutoStaticsCleanup]
     private static UIPrefabLoaderAddressableString _instance;
 
     public static UIPrefabLoaderAddressableString Instance

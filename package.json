@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "com.cupkekgames.addressableassets",
   "displayName": "CupkekGames AddressableAssets",
   "version": "0.1.5",
@@ -6,7 +6,7 @@
     "name": "CupkekGames",
     "url": "https://www.docs.cupkek.games"
   },
-  "unity": "6000.0",
+  "unity": "6000.5",
   "documentationUrl": "https://docs.cupkek.games/",
   "description": "Addressables integration for CupkekGames packages: prefab loader, asset references, and Luna UI bindings (UIPrefabLoader).",
   "keywords": [
