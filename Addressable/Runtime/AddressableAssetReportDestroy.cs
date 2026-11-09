@@ -8,6 +8,9 @@ namespace CupkekGames.AddressableAssets
   {
     private AssetReference _assetReference;
 
+    // Who made this instance (AddressableAssetManager.ReleaseInstances); null: no one in particular.
+    internal object Owner { get; set; }
+
     private void OnDestroy()
     {
       if (_assetReference != null)

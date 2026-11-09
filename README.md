@@ -10,6 +10,10 @@ Addressables integration: asset loading, prefab loader, Luna UI bindings (UIPref
 
 `UI.Generic` (NotificationView and other generic UI helpers) lives in Luna's `Samples~/GameFull/Scripts/UI.Generic/` rather than here — it's sample-quality scaffolding, not core asset-loading code.
 
+## Releasing instances
+
+Several holders can instantiate the same asset (a pool and a field walker of one hero model). Pass an `owner` to `AddressableAssetManager.InstantiateSync` / `InstantiateAsync`, and release with `ReleaseInstances(assetReference, owner)`: it destroys only that owner's instances and releases the handle once no instance is left. `DestroyAllThenRelease` still destroys every holder's instances. `AddressableGameObjectPool` releases only its own.
+
 ## Dependencies
 
 - `com.cupkekgames.pool` (`AddressableGameObjectPool` extends `GameObjectPoolBase`)

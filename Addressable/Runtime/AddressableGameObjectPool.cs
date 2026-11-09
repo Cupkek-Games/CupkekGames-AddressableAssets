@@ -23,17 +23,17 @@ namespace CupkekGames.AddressableAssets
 
         public override GameObject CreateObject()
         {
-            return AddressableAssetManager.InstantiateSync(_assetReference);
+            return AddressableAssetManager.InstantiateSync(_assetReference, owner: this);
         }
 
         public void Dispose()
         {   
             Pool.Dispose();
             
-            // Release the addressable asset
+            // This pool's instances only; other holders of the asset keep theirs.
             if (_assetReference != null)
             {
-                AddressableAssetManager.DestroyAllThenRelease(_assetReference);
+                AddressableAssetManager.ReleaseInstances(_assetReference, this);
             }
         }
     }

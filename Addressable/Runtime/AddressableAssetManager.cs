@@ -108,8 +108,13 @@ namespace CupkekGames.AddressableAssets
       return handle.Value.Result;
     }
 
+    /// <summary>
+    /// Instantiates the asset, loading it first if needed.
+    /// </summary>
+    /// <param name="owner">Who holds the instance: <see cref="ReleaseInstances"/> with the same
+    /// owner destroys it and leaves every other holder's instances of the asset alone.</param>
     public static GameObject InstantiateSync(AssetReference assetReference, Vector3? position = null,
-      Quaternion? rotation = null)
+      Quaternion? rotation = null, object owner = null)
     {
       if (!IsLoadedAndValid(assetReference))
       {
@@ -120,11 +125,11 @@ namespace CupkekGames.AddressableAssets
         }
       }
 
-      return InstantiateGameObjectWithoutLoad(assetReference, position, rotation);
+      return InstantiateGameObjectWithoutLoad(assetReference, position, rotation, owner);
     }
 
-    private static GameObject InstantiateGameObjectWithoutLoad(AssetReference assetReference, Vector3? position = null,
-      Quaternion? rotation = null)
+    private static GameObject InstantiateGameObjectWithoutLoad(AssetReference assetReference, Vector3? position,
+      Quaternion? rotation, object owner)
     {
       AsyncOperationHandle handle;
 
@@ -178,6 +183,7 @@ namespace CupkekGames.AddressableAssets
         addressableAssetReleaseOnDestroy.SetAssetReference(assetReference);
       }
 
+      addressableAssetReleaseOnDestroy.Owner = owner;
 
       if (Test)
       {
@@ -247,6 +253,50 @@ namespace CupkekGames.AddressableAssets
       }
 
       return true;
+    }
+
+    /// <summary>
+    /// Destroys the instances <paramref name="owner"/> made of the asset (the owner passed to
+    /// <see cref="InstantiateSync"/> or <see cref="InstantiateAsync"/>) and leaves everyone
+    /// else's alone. The handle is released once no instance of the asset is left.
+    /// </summary>
+    /// <returns>False when the asset is not loaded.</returns>
+    public static bool ReleaseInstances(AssetReference assetReference, object owner)
+    {
+      if (assetReference == null) throw new ArgumentNullException(nameof(assetReference));
+      if (owner == null)
+      {
+        throw new ArgumentNullException(nameof(owner),
+          "ReleaseInstances needs the owner the instances were made with; DestroyAllThenRelease takes every holder's.");
+      }
+
+      if (!_loadedAssetReference.TryGetValue(assetReference, out AsyncOperationHandle handle))
+      {
+        return false;
+      }
+
+      if (_instantiatedGameObjects.TryGetValue(handle, out List<GameObject> instances))
+      {
+        for (int i = instances.Count - 1; i >= 0; i--)
+        {
+          GameObject instance = instances[i];
+          // A dead entry goes too; another holder's live instance stays.
+          if (instance != null && !OwnedBy(instance, owner)) continue;
+
+          instances.RemoveAt(i);
+          if (instance != null) GameObject.Destroy(instance);
+        }
+
+        if (instances.Count > 0) return true;
+      }
+
+      DestroyAllThenRelease(assetReference);
+      return true;
+    }
+
+    private static bool OwnedBy(GameObject instance, object owner)
+    {
+      return instance.TryGetComponent(out AddressableAssetReportDestroy report) && ReferenceEquals(report.Owner, owner);
     }
 
     public static bool ReportDestroy(AssetReference assetReference, GameObject instance)
@@ -546,8 +596,9 @@ namespace CupkekGames.AddressableAssets
     /// <param name="position">The position of the instantiated GameObject. If null, the default position is Vector3.zero.</param>
     /// <param name="rotation">The rotation of the instantiated GameObject. If null, the default rotation is Quaternion.identity.</param>
     /// <returns>The instantiated GameObject.</returns>
+    /// <param name="owner">Who holds the instance (see <see cref="InstantiateSync"/>).</param>
     public static async Task<GameObject> InstantiateAsync(AssetReference assetReference, Vector3? position = null,
-      Quaternion? rotation = null)
+      Quaternion? rotation = null, object owner = null)
     {
       if (assetReference == null)
       {
@@ -567,7 +618,7 @@ namespace CupkekGames.AddressableAssets
           }
         }
 
-        return InstantiateGameObjectWithoutLoad(assetReference, position, rotation);
+        return InstantiateGameObjectWithoutLoad(assetReference, position, rotation, owner);
       }
       catch (Exception ex)
       {
