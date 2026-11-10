@@ -15,12 +15,13 @@ com.cupkekgames.addressableassets/
   package.json
   README.md
   AGENTS.md
-  Addressable/                    ← CupkekGames.Systems.Addressables.asmdef
+  Addressable/                    ← CupkekGames.AddressableAssets.asmdef
     Runtime/                        (asset reference helpers)
-  PrefabLoader/                   ← CupkekGames.Systems.PrefabLoader.asmdef
+    Test/                           (+ Test/Editor)
+  PrefabLoader/                   ← CupkekGames.AddressableAssets.PrefabLoader.asmdef (+ Editor)
     Runtime/                        (load + instantiate prefabs by Addressables key)
     Editor/
-  UI.PrefabLoader/                ← CupkekGames.Systems.UI.PrefabLoader.asmdef (+ Editor)
+  UI.PrefabLoader/                ← CupkekGames.AddressableAssets.UI.PrefabLoader.asmdef (+ Editor)
     Runtime/                        (Luna UIPrefabLoader binding)
     Editor/
 
@@ -35,6 +36,6 @@ com.cupkekgames.addressableassets/
 
 ## Coding Conventions
 
-- **Namespaces**: `CupkekGames.Systems.Addressables`, `CupkekGames.Systems.PrefabLoader`, `CupkekGames.Systems.UI.PrefabLoader`, `CupkekGames.Systems.UI.Generic`
+- **Namespaces**: `CupkekGames.AddressableAssets` (runtime + prefab loader), `CupkekGames.AddressableAssets.UI` (UI prefab loader), plus `.Editor` / `.Test` variants
 - **Asmdefs**: GUID references; use `versionDefines` for `com.unity.addressables`
 - **Strict typing**
